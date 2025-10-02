@@ -1,0 +1,6 @@
+@PAW3.ServiceLocator_HostAddress = http://localhost:5124
+
+GET {{PAW3.ServiceLocator_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

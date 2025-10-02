@@ -1,0 +1,6 @@
+@PAW3.Api_HostAddress = http://localhost:5070
+
+GET {{PAW3.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
