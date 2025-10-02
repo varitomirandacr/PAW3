@@ -1,0 +1,86 @@
+# Visual Studio / .NET Core .gitignore
+# See https://github.com/github/gitignore/blob/main/VisualStudio.gitignore for reference
+
+# User-specific files
+.vs/
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+# Build results
+[Bb]in/
+[Oo]bj/
+Debug/
+Release/
+TestResults/
+*.appx
+*.appxupload
+
+# Visual Studio cache/options
+*.VC.db
+*.VC.opendb
+
+# Rider
+.idea/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# NuGet
+*.nupkg
+**/packages/*
+!**/packages/build/
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+
+# SQL Server files
+*.mdf
+*.ldf
+
+# IIS Express
+/.vs/
+applicationhost.config
+
+# Mac
+.DS_Store
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Node
+node_modules/
+
+# Logs
+*.log
+
+# Local secrets and user settings
+appsettings.*.json
+secrets.json
+
+# Generated API and build artifacts
+*.generated.cs
+
+# Coverage and test artifacts
+coverage/
+coverage.*
+.coverage
+.coveragexml
+
+# Docker
+docker-compose.override.yml
+
+# Misc
+*.class
+*.war
+*.jar
