@@ -24,4 +24,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PAW3.Models\PAW3.Models.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,4 +1,8 @@
-﻿public static class IConfigurationExtensions
+﻿using Microsoft.Extensions.Configuration;
+
+namespace PAW3.ServiceLocator.Extensions;
+
+public static class IConfigurationExtensions
 {
     public static string GetStringFromAppSettings(this IConfiguration configuration, string section, string key)
     {

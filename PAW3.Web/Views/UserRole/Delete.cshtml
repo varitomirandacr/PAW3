@@ -1,0 +1,36 @@
+@model UserRoleViewModel
+
+@{
+    ViewData["Title"] = "Delete User Role";
+}
+
+<h1>Delete User Role</h1>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Error
+    </div>
+}
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Id)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Id)</dd>
+        
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.UserId)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.UserId)</dd>
+        
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.RoldId)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.RoldId)</dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </form>
+</div>
+

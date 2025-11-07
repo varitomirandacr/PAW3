@@ -1,5 +1,5 @@
 using PAW3.Architecture;
-using PAW3.Models.DTOs;
+using PAW3.Models.Entities;
 using PAW3.ServiceLocator.Helper;
 using PAW3.ServiceLocator.Services;
 using PAW3.ServiceLocator.Services.Contracts;
@@ -17,8 +17,8 @@ builder.Services.AddScoped<IDogDataService, DogDataService>();
 builder.Services.AddScoped<ITempDataService, TempDataService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 
-builder.Services.AddScoped<IService<ProductDTO>, ProductService>();
-//builder.Services.AddScoped<IService<CategoryDTO>, CategoryService>();
+builder.Services.AddScoped<IService<Product>, ProductService>();
+//builder.Services.AddScoped<IService<Category>, CategoryService>();
 builder.Services.AddScoped<IServiceMapper, ServiceMapper>();
 
 

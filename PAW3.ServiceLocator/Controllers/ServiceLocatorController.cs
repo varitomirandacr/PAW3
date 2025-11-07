@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PAW3.Models.DTOs;
 using PAW3.ServiceLocator.Helper;
 using PAW3.ServiceLocator.Services;
 

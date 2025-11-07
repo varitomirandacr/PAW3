@@ -1,0 +1,73 @@
+@model IEnumerable<UserActionViewModel>
+
+@{
+    ViewData["Title"] = "User Actions";
+}
+
+<div class="content-card">
+    <div class="page-header">
+        <h1><i class="fas fa-user-cog text-primary-custom me-2"></i>User Actions</h1>
+        <a asp-action="Create" class="btn btn-primary">
+            <i class="fas fa-plus me-2"></i>Create New
+        </a>
+    </div>
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <i class="fas fa-exclamation-circle me-2"></i>@ViewBag.Error
+        </div>
+    }
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Id)</th>
+                        <th>@Html.DisplayNameFor(model => model.Name)</th>
+                        <th>@Html.DisplayNameFor(model => model.Description)</th>
+                        <th class="text-end">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td><strong>@Html.DisplayFor(modelItem => item.Id)</strong></td>
+                            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                            <td>@(item.Description?.Length > 50 ? item.Description.Substring(0, 50) + "..." : item.Description)</td>
+                            <td class="text-end">
+                                <div class="action-buttons">
+                                    <a asp-controller="UserAction" asp-action="Details" asp-route-id="@((int?)item.Id)" class="btn btn-info btn-sm">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a asp-controller="UserAction" asp-action="Edit" asp-route-id="@((int?)item.Id)" class="btn btn-warning btn-sm">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a asp-controller="UserAction" asp-action="Delete" asp-route-id="@((int?)item.Id)" class="btn btn-danger btn-sm">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="empty-state">
+            <div class="empty-state-icon">
+                <i class="fas fa-user-cog"></i>
+            </div>
+            <h3>No User Actions Found</h3>
+            <p>Get started by creating your first user action.</p>
+            <a asp-action="Create" class="btn btn-primary mt-3">
+                <i class="fas fa-plus me-2"></i>Create User Action
+            </a>
+        </div>
+    }
+</div>

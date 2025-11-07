@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PAW3.Data.Models;
+using PAW3.Models.Entities;
+using PAW3.Data.MSSQL;
 
 namespace PAW3.Data.Repositories;
 
@@ -79,10 +80,11 @@ public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class
     /// <summary>
     /// Initializes a new instance of the <see cref="RepositoryBase{T}"/> class.
     /// </summary>
-    public RepositoryBase()
+    /// <param name="context">The database context.</param>
+    public RepositoryBase(ProductDbContext context)
     {
-        _context = new ProductDbContext();
-        DbSet<T> _sdbSet = _context.Set<T>();
+        _context = context;
+        DbSet = _context.Set<T>();
     }
 
     public async Task<bool> UpsertAsync(T entity, bool isUpdating)

@@ -1,0 +1,33 @@
+@model UserRoleViewModel
+
+@{
+    ViewData["Title"] = "User Role Details";
+}
+
+<h1>User Role Details</h1>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Error
+    </div>
+}
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Id)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Id)</dd>
+        
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.UserId)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.UserId)</dd>
+        
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.RoldId)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.RoldId)</dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@((int?)Model.Id)" class="btn btn-warning">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>
+

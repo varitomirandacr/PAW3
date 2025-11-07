@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using PAW3.Architecture;
 using PAW3.Architecture.Providers;
+using PAW3.ServiceLocator.Extensions;
 
 namespace PAW3.ServiceLocator.Services
 {
@@ -19,7 +20,7 @@ namespace PAW3.ServiceLocator.Services
         {
             var url = _configuration.GetStringFromAppSettings("APIS", "Dogs");
             var response = await _restProvider.GetAsync(url, null);
-            return await JsonProvider.DeserializeAsync<string>(response);
+            return JsonProvider.DeserializeSimple<string>(response) ?? string.Empty;
         }
     }
 

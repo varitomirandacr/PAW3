@@ -1,0 +1,87 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="content-card">
+    <div class="text-center mb-5">
+        <h1 class="display-4 mb-3">
+            <i class="fas fa-cube text-primary-custom me-2"></i>Welcome to PAW3 Enterprise Portal
+        </h1>
+        <p class="lead text-muted">Manage your business entities efficiently with our comprehensive enterprise solution.</p>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="content-card text-center h-100">
+                <div class="mb-3">
+                    <i class="fas fa-box fa-3x text-primary-custom"></i>
+                </div>
+                <h4>Products</h4>
+                <p class="text-muted">Manage your product catalog</p>
+                <a asp-controller="Product" asp-action="Index" class="btn btn-primary">
+                    <i class="fas fa-arrow-right me-2"></i>View Products
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="content-card text-center h-100">
+                <div class="mb-3">
+                    <i class="fas fa-tags fa-3x text-primary-custom"></i>
+                </div>
+                <h4>Categories</h4>
+                <p class="text-muted">Organize product categories</p>
+                <a asp-controller="Category" asp-action="Index" class="btn btn-primary">
+                    <i class="fas fa-arrow-right me-2"></i>View Categories
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="content-card text-center h-100">
+                <div class="mb-3">
+                    <i class="fas fa-warehouse fa-3x text-primary-custom"></i>
+                </div>
+                <h4>Inventory</h4>
+                <p class="text-muted">Track your inventory levels</p>
+                <a asp-controller="Inventory" asp-action="Index" class="btn btn-primary">
+                    <i class="fas fa-arrow-right me-2"></i>View Inventory
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="content-card text-center h-100">
+                <div class="mb-3">
+                    <i class="fas fa-users fa-3x text-primary-custom"></i>
+                </div>
+                <h4>Users</h4>
+                <p class="text-muted">Manage user accounts</p>
+                <a asp-controller="User" asp-action="Index" class="btn btn-primary">
+                    <i class="fas fa-arrow-right me-2"></i>View Users
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="content-card text-center h-100">
+                <div class="mb-3">
+                    <i class="fas fa-tasks fa-3x text-primary-custom"></i>
+                </div>
+                <h4>Tasks</h4>
+                <p class="text-muted">Manage your tasks</p>
+                <a asp-controller="Task" asp-action="Index" class="btn btn-primary">
+                    <i class="fas fa-arrow-right me-2"></i>View Tasks
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="content-card text-center h-100">
+                <div class="mb-3">
+                    <i class="fas fa-truck fa-3x text-primary-custom"></i>
+                </div>
+                <h4>Suppliers</h4>
+                <p class="text-muted">Manage supplier information</p>
+                <a asp-controller="Supplier" asp-action="Index" class="btn btn-primary">
+                    <i class="fas fa-arrow-right me-2"></i>View Suppliers
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

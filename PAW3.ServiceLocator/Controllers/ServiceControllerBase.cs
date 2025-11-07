@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PAW3.Models.DTOs;
+using PAW3.Models.Entities;
 using PAW3.ServiceLocator.Helper;
 
 namespace PAW3.ServiceLocator.Controllers;
@@ -15,7 +15,7 @@ public class ServiceControllerBase : ControllerBase
             ["product"] = async () =>
             {
                 // defer resolution until invocation time
-                var service = await serviceMapper.GetServiceAsync<ProductDTO>("product");
+                var service = await serviceMapper.GetServiceAsync<Product>("product");
                 var data = await service.GetDataAsync();
                 return data.Cast<object>();
             },
@@ -23,7 +23,7 @@ public class ServiceControllerBase : ControllerBase
             // Example for another service:
             // ["category"] = async () =>
             // {
-            //     var service = await serviceMapper.GetServiceAsync<CategoryDTO>("category");
+            //     var service = await serviceMapper.GetServiceAsync<Category>("category");
             //     var data = await service.GetDataAsync();
             //     return data.Cast<object>();
             // }

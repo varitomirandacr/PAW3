@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PAW3.Data.Models;
+using PAW3.Models.Entities;
+using PAW3.Data.MSSQL;
 
 namespace PAW3.Data.Repositories;
 
@@ -19,6 +20,10 @@ public interface IRepositoryProduct
 
 public class RepositoryProduct : RepositoryBase<Product>, IRepositoryProduct
 {
+    public RepositoryProduct(ProductDbContext context) : base(context)
+    {
+    }
+
     public async Task<bool> CheckBeforeSavingAsync(Product entity)
     {
         var exists = await ExistsAsync(entity);

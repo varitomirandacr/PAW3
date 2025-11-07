@@ -1,0 +1,67 @@
+@model ProductViewModel
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<div class="content-card">
+    <div class="page-header">
+        <h1><i class="fas fa-box text-primary-custom me-2"></i>Product Details</h1>
+        <div class="action-buttons">
+            <a asp-controller="Product" asp-action="Edit" asp-route-id="@Model.ProductId" class="btn btn-warning">
+                <i class="fas fa-edit me-2"></i>Edit
+            </a>
+            <a asp-controller="Product" asp-action="Index" class="btn btn-secondary">
+                <i class="fas fa-arrow-left me-2"></i>Back to List
+            </a>
+        </div>
+    </div>
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <i class="fas fa-exclamation-circle me-2"></i>@ViewBag.Error
+        </div>
+    }
+
+    <dl class="row">
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.ProductId)</dt>
+        <dd class="col-sm-9"><strong>@Html.DisplayFor(model => model.ProductId)</strong></dd>
+        
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.ProductName)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.ProductName)</dd>
+        
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Description)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Description)</dd>
+        
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Rating)</dt>
+        <dd class="col-sm-9">
+            @if (Model.Rating.HasValue)
+            {
+                <span class="badge bg-warning text-dark">
+                    <i class="fas fa-star me-1"></i>@Html.DisplayFor(model => model.Rating)
+                </span>
+            }
+            else
+            {
+                <span class="text-muted">Not rated</span>
+            }
+        </dd>
+        
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.CategoryId)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.CategoryId)</dd>
+        
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.SupplierId)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.SupplierId)</dd>
+        
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.InventoryId)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.InventoryId)</dd>
+        
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.LastModified)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.LastModified)</dd>
+        
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.ModifiedBy)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.ModifiedBy)</dd>
+    </dl>
+</div>
+
