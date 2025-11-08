@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
+using PAW3.Web.Filters;
 using PAW3.Web.Models;
 using System.Diagnostics;
 
 namespace PAW3.Web.Controllers
 {
+    [RequireLogin]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

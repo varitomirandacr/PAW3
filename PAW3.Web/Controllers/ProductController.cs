@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using PAW3.Architecture;
 using PAW3.Architecture.Providers;
+using PAW3.Web.Filters;
 using PAW3.Web.Models.ViewModels;
 
 namespace PAW3.Web.Controllers;
 
+[RequireLogin]
 public class ProductController : Controller
 {
     private readonly IRestProvider _restProvider;

@@ -1,26 +1,36 @@
-﻿@using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+﻿@{
+    var isLoggedIn = Context.Session.GetString("IsLoggedIn") == "true";
+    var username = Context.Session.GetString("Username") ?? "";
+    var email = Context.Session.GetString("Email") ?? "";
+}
 
 <ul class="navbar-nav">
-@if (SignInManager.IsSignedIn(User))
+@if (isLoggedIn)
 {
-    <li class="nav-item">
-        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
-    </li>
-    <li class="nav-item">
-        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-        </form>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-user-circle me-1"></i>
+            @(string.IsNullOrEmpty(username) ? email : username)
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+            <li><h6 class="dropdown-header">@(string.IsNullOrEmpty(email) ? "" : email)</h6></li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+                <form asp-controller="Login" asp-action="Logout" method="post" class="d-inline">
+                    <button type="submit" class="dropdown-item">
+                        <i class="fas fa-sign-out-alt me-2"></i>Logout
+                    </button>
+                </form>
+            </li>
+        </ul>
     </li>
 }
 else
 {
     <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        <a class="nav-link" asp-controller="Login" asp-action="Index">
+            <i class="fas fa-sign-in-alt me-1"></i>Login
+        </a>
     </li>
 }
 </ul>
