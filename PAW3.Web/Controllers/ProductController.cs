@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using PAW3.Architecture;
 using PAW3.Architecture.Providers;
+using PAW3.Core.Services;
 using PAW3.Web.Filters;
 using PAW3.Web.Models.ViewModels;
 
@@ -20,7 +21,7 @@ public class ProductController : Controller
         _apiBaseUrl = _configuration["ApiSettings:BaseUrl"] ?? "https://localhost:7180/api";
     }
 
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index([FromServices] IEntityOperationService entityOperationService)
     {
         try
         {
@@ -31,6 +32,7 @@ public class ProductController : Controller
             {
                 productDto = new ProductDtoViewModel();
             }
+            entityOperationService.SumEach([.. productDto.Products.Select(x => x.Rating ?? 0.0M)], 0.5M);
             return View(productDto);
         }
         catch (Exception ex)

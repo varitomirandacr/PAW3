@@ -1,6 +1,6 @@
-﻿using PAW3.Models.Entities;
+﻿using PAW3.Models.Entities.Productdb;
 using PAW3.ServiceLocator.Services.Contracts;
-using ModelsTask = PAW3.Models.Entities.Task;
+using ModelsTask = PAW3.Models.Entities.Productdb.Task;
 
 namespace PAW3.ServiceLocator.Helper;
 

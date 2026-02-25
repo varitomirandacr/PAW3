@@ -67,26 +67,49 @@ public interface IRepositoryBase<T>
     Task<bool> ExistsAsync(T entity);
 }
 
+public abstract class FoodbankRepositoryBase<T> : RepositoryBase<T> where T : class
+{
+    public FoodbankRepositoryBase(FoodbankDbContext context)
+        : base(context)
+    {
+    }
+}
+
+public abstract class ProductRepositoryBase<T> : RepositoryBase<T> where T : class
+{
+    public ProductRepositoryBase(ProductDbContext context)
+        : base(context)
+    {
+    }
+}
+
 /// <summary>
 /// Base class for repository operations.
 /// </summary>
 /// <typeparam name="T">Entity type.</typeparam>
 public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class
 {
-    private readonly ProductDbContext _context;
-    protected ProductDbContext DbContext => _context;
-    protected DbSet<T> DbSet;
+    private readonly DbContext _context;
+    protected readonly DbSet<T> DbSet;
+    protected DbContext DbContext => _context;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="RepositoryBase{T}"/> class.
     /// </summary>
     /// <param name="context">The database context.</param>
-    public RepositoryBase(ProductDbContext context)
+    public RepositoryBase(DbContext context)
     {
         _context = context;
         DbSet = _context.Set<T>();
     }
 
+    /// <summary>
+    /// Creates a new entity or updates an existing one asynchronously, depending on the specified operation mode.
+    /// </summary>
+    /// <param name="entity">The entity to create or update. Cannot be null.</param>
+    /// <param name="isUpdating">If <see langword="true"/>, updates the specified entity; otherwise, creates a new entity.</param>
+    /// <returns>A task that represents the asynchronous operation. The task result is <see langword="true"/> if the operation
+    /// succeeds; otherwise, <see langword="false"/>.</returns>
     public async Task<bool> UpsertAsync(T entity, bool isUpdating)
     {
         return isUpdating 

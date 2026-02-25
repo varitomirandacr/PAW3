@@ -1,6 +1,5 @@
-using PAW3.Models.Entities;
 using PAW3.Data.MSSQL;
-using ModelsTask = PAW3.Models.Entities.Task;
+using ModelsTask = PAW3.Models.Entities.Productdb.Task;
 
 namespace PAW3.Data.Repositories;
 

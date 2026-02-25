@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using PAW3.Models.Entities;
-using ModelsTask = PAW3.Models.Entities.Task;
+using PAW3.Models.Entities.Productdb;
+using ModelsTask = PAW3.Models.Entities.Productdb.Task;
 
 namespace PAW3.Data.MSSQL;
 

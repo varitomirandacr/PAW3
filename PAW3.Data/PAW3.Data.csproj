@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="MSSQL\" />
     <Folder Include="Mongodb\" />
     <Folder Include="Azure\" />
   </ItemGroup>

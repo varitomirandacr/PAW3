@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using PAW3.Core.BusinessLogic;
-using PAW3.Models.Entities;
+using PAW3.Models.Entities.Productdb;
 
 namespace PAW3.Api.Controllers;
 

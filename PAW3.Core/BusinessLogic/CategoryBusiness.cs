@@ -1,5 +1,5 @@
-using PAW3.Models.Entities;
 using PAW3.Data.Repositories;
+using PAW3.Models.Entities.Productdb;
 
 namespace PAW3.Core.BusinessLogic;
 

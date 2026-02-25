@@ -1,6 +1,6 @@
 ﻿using PAW3.Architecture;
 using PAW3.Architecture.Providers;
-using PAW3.Models.Entities;
+using PAW3.Models.Entities.Productdb;
 using PAW3.ServiceLocator.Extensions;
 using PAW3.ServiceLocator.Services.Contracts;
 

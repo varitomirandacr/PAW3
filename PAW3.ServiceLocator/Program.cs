@@ -1,5 +1,5 @@
 using PAW3.Architecture;
-using PAW3.Models.Entities;
+using PAW3.Models.Entities.Productdb;
 using PAW3.ServiceLocator.Helper;
 using PAW3.ServiceLocator.Services;
 using PAW3.ServiceLocator.Services.Contracts;

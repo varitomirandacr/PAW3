@@ -2,7 +2,9 @@
 using PAW3.Core.BusinessLogic;
 using PAW3.Data.Repositories;
 using PAW3.Models.DTO;
-using PAW3.Models.Entities;
+using Shouldly;
+using PAW3.Architecture.Extensions;
+using PAW3.Models.Entities.Productdb;
 
 namespace PAW3.CoreTests;
 
@@ -18,7 +20,8 @@ public class ProductTests
     private readonly List<ProductSummary> expectedSummaries =
     [
         new ProductSummary { Rating = 5, Count = 2 },
-        new ProductSummary { Rating = 4, Count = 1 }
+        new ProductSummary { Rating = 4, Count = 1 },
+        new ProductSummary { Rating = 3, Count = 1 }
     ];
 
     private readonly Mock<IRepositoryProduct> _repositoryProductMock = new();
@@ -56,11 +59,28 @@ public class ProductTests
         // Assert
         _repositoryProductMock.Verify(rp => rp.ReadAsync(), Times.Once);
         _repositoryProductMock.Verify(rp => rp.FindAsync(It.IsAny<int>()), Times.Never);
+                
+        //Should.Equals(result.Products.Count(), this.products.Count());
 
         Assert.NotNull(result);
         Assert.True(result.Products.Count() == this.products.Count());
         Assert.NotEmpty(result.Summaries);
         Assert.Equal(this.expectedSummaries.Count(), result.Summaries.Count);
         //Assert.Equal(2, result.Summaries.FirstOrDefault().Count);
+    }
+
+    [Fact]
+    public void GetId_WhenCallingGenerateIdFromNow_ShouldRecieveGeneratedId()
+    {
+        // Arrange 
+        var dateTimeNow = DateTime.Now;
+
+        // Act
+        var generatedId = dateTimeNow.GenerateIdFromNow();
+
+        // Assert
+        Assert.True(generatedId > 0);
+        Assert.IsAssignableFrom<int>(generatedId);
+        Assert.InRange(generatedId, 0, int.MaxValue);
     }
 }

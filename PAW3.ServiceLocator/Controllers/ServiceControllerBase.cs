@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PAW3.Models.Entities;
+using PAW3.Models.Entities.Productdb;
 using PAW3.ServiceLocator.Helper;
 
 namespace PAW3.ServiceLocator.Controllers;

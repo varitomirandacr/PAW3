@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using PAW3.Core.BusinessLogic;
-using PAW3.Models.Entities;
-using ModelsTask = PAW3.Models.Entities.Task;
+using ModelsTask = PAW3.Models.Entities.Productdb.Task;
 
 namespace PAW3.Api.Controllers;
 

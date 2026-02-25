@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PAW3.Models.Entities;
+namespace PAW3.Models.Entities.Productdb;
 
 public partial class User
 {

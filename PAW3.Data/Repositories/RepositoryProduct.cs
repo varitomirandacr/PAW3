@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PAW3.Models.Entities;
 using PAW3.Data.MSSQL;
+using PAW3.Models.Entities.Productdb;
 
 namespace PAW3.Data.Repositories;
 
@@ -37,6 +37,6 @@ public class RepositoryProduct : RepositoryBase<Product>, IRepositoryProduct
 
     public async new Task<bool> ExistsAsync(Product entity) 
     {
-        return await DbContext.Products.AnyAsync(x => x.ProductId == entity.ProductId);
+        return await ((ProductDbContext)DbContext).Products.AnyAsync(x => x.ProductId == entity.ProductId);
     }
 }
