@@ -1,5 +1,5 @@
 ﻿namespace PAW3.Web.Models.ViewModels;
 
-public class FoodItemViewModel
+public class FoodbankViewModel
 {
 }
