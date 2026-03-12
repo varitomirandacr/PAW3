@@ -1,10 +1,5 @@
-﻿using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+﻿using PAW3.Core.Domain;
 using PAW3.Data.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using PAW3.Models.DTO;
 using PAW3.Models.Entities.Productdb;
 
@@ -61,6 +56,14 @@ public class ProductBusiness(IRepositoryProduct repositoryProduct) : IProductBus
 
         if (!hasId && products != null && products.Any())
         {
+            foreach (var product in productDto.Products)
+            {
+                new ProductDomain(product)
+                    .CleanRating()
+                    .ApplyRatingClass()
+                    .ApplyTimeClass();
+            }
+
             productDto.Summaries.AddRange(products.Select(x => new
             {
                 Id = x.ProductId,
@@ -95,5 +98,6 @@ public class ProductBusiness(IRepositoryProduct repositoryProduct) : IProductBus
         productDto.Products = products;
         return productDto;
     }
+
 }
 

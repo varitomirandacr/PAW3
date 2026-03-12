@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using PAW3.Web.Filters;
 using PAW3.Web.Models;
+using PAW3.Web.Models.ViewModels;
 using System.Diagnostics;
 
 namespace PAW3.Web.Controllers
@@ -17,7 +18,16 @@ namespace PAW3.Web.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var model = new CursoViewModel
+            {
+                curso = "Programacion Avanzada Web",
+                Sede = "San José",
+                aula = "Remoto",
+                facultadAsociada = "Facultad de Ingeniería",
+                correo = "sistemas@ufidelitas.ac.cr"
+            };
+
+            return View(model);
         }
 
         public IActionResult Privacy()
